@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.logoSilmar{
+    height: 225px;
+    width: 250px;
+}
+
+body{
+    background-image: url(../assets/background.jpeg);
+    background-size: cover;
+    font-family: 'Coiny', cursive;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.form-label{
+    font-weight: bolder;
+}
+
+.mostrarPrecio{
+    font-weight: bolder;
+}
+
+.disable {
+    display: none;
+}
+
+.accesorios{
+    margin: 10px;
+}
+
+.vistaProductos{
+    border-radius: 10px;
+    border-style: none;
+    background-color: #f1810138;
+    padding: 10px;
+}
+
+.mostrarPreciosCargados{    
+    margin: 10px 0 10px 10px;
+        
+}
+
+.btnModificar{
+    margin: 10px 0 10px 10px;
+    
+}

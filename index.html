@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">    
+    <link href="./css/style.css" rel="stylesheet">
+    <title>Calculadora Silmar</title>
+</head>
+<body>
+    <section id="logo" class="logoSection row mx-auto col-10 col-md-8 col-lg-6">
+        <img src="./assets/silmar png.png" alt="logoSilmar" class="logoSilmar rounded mx-auto d-block">
+    </section>
+    
+    <!-- Sección para iniciar la app -->
+
+    <section id="initApp" class="disable">
+        <div class="mx-auto col-10 col-md-8 col-lg-6 row">
+            <button type="button" class="btn btn-danger btn-lg" id="cargarPrecios">Cargar Precios</button>
+        </div>
+        <br>
+        <div class="mx-auto col-10 col-md-8 col-lg-6 row">
+            <button type="button" class="btn btn-danger btn-lg" id="calcularPedido">Calcular Pedido</button>
+        </div>
+        <br>
+        <div class="mx-auto col-10 col-md-8 col-lg-6 row">
+            <button type="button" class="btn btn-danger btn-lg" id="verProductos">Ver productos</button>
+        </div>
+    </section>
+    
+
+    <!-- Sección para ingresar los precios de los productos -->
+
+    <section id="priceSection" class="row disable">
+        <div class="container vistaProductos mx-auto col-10 col-md-8 col-lg-6">
+        <form id="loadPrices">
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">ENTERA</label>                
+            </div>
+            <div class="input-group mb-3">                
+                <span class="input-group-text">$</span>
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="precioEntera" placeholder="Solo números enteros">
+                <span class="input-group-text">.00</span><span class="mostrarPrecio" id="mostrarPrecioEntera"></span>
+                <span><button type="button" class="btn btn-outline-danger btnModificar" id="modificarPrecioEntera">Modificar</button></span>
+            </div>
+            
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">PORCIÓN</label>                
+            </div>
+            <div class="input-group mb-3">                
+                <span class="input-group-text">$</span>
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="precioPorcion" placeholder="Solo números enteros" >
+                <span class="input-group-text">.00</span><span class="mostrarPrecio" id="mostrarPrecioPorcion"></span>
+                <span><button type="button" class="btn btn-outline-danger btnModificar" id="modificarPrecioPorcion">Modificar</button></span>
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">BUDÍN</label>                
+            </div>
+            <div class="input-group mb-3">                
+                <span class="input-group-text">$</span>
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="precioBudin" placeholder="Solo números enteros">
+                <span class="input-group-text">.00</span><span class="mostrarPrecio" id="mostrarPrecioBudin"></span>
+                <span><button type="button" class="btn btn-outline-danger btnModificar" id="modificarPrecioBudin">Modificar</button></span>
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">MIGA</label>                
+            </div>
+            <div class="input-group mb-3">                
+                <span class="input-group-text">$</span>
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="precioMiga" placeholder="Solo números enteros">
+                <span class="input-group-text">.00</span><span class="mostrarPrecio" id="mostrarPrecioMiga"></span>
+                <span><button type="button" class="btn btn-outline-danger btnModificar" id="modificarPrecioMiga">Modificar</button></span>
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">PEBETÍN</label>                
+            </div>
+            <div class="input-group mb-3">                
+                <span class="input-group-text">$</span>
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="precioPebetin" placeholder="Solo números enteros">
+                <span class="input-group-text">.00</span><span class="mostrarPrecio" id="mostrarPrecioPebetin"></span>
+                <span><button type="button" class="btn btn-outline-danger btnModificar" id="modificarPrecioPebetin">Modificar</button></span>
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">PEBETE</label>                
+            </div>
+            <div class="input-group mb-3">                
+                <span class="input-group-text">$</span>
+                <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)" id="precioPebete" placeholder="Solo números enteros">
+                <span class="input-group-text">.00</span><span class="mostrarPrecio" id="mostrarPrecioPebete"></span>
+                <span><button type="button" class="btn btn-outline-danger btnModificar" id="modificarPrecioPebete">Modificar</button></span>
+            </div>
+              <button type="submit" class="btn btn-outline-danger">CARGAR PRECIOS</button>
+              <button type="button" class="btn btn-outline-danger" id="btnBorrarPrecios">BORRAR</button>
+              <button type="reset" class="btn btn-outline-danger" id="btnVolverInit">VOLVER</button>  
+              
+        </form>        
+        </div>
+        
+    </section>
+
+    <!-- Sección para ingresar la cantidad de productos a calcular -->
+
+    <section id="calculadoraPedidos" class="row disable">
+        
+        <div class="container vistaProductos mx-auto col-10 col-md-8 col-lg-6 text-center mt-2">
+            <table class="table">
+                <thead>
+                    <tr>
+                      <th scope="col">Cantidad</th>
+                      <th scope="col">Producto</th>
+                      <th scope="col">Precio</th>
+                      <th scope="col">Total</th>
+                    </tr>
+                  </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"><input type="number" class="form-control" id="inEnteraPedido" value="0"></th>
+                        <td>Entera</td>
+                        <td id="enteraPrecio"></td>
+                        <td id="enteraTotal"></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><input type="number" class="form-control" id="inPorcionPedido" value="0"></th>
+                        <td>Porción</td>
+                        <td id="porcionPrecio"></td>
+                        <td id="porcionTotal"></td>
+                    </tr>    
+                    <tr>
+                        <th scope="row"><input type="number" class="form-control" id="inBudinPedido" value="0"></th>
+                        <td>Budín</td>
+                        <td id="budinPrecio"></td>
+                        <td id="budinTotal"></td>
+                    </tr>    
+                    <tr>
+                        <th scope="row"><input type="number" class="form-control" id="inMigaPedido" value="0"></th>
+                        <td>Miga</td>
+                        <td id="migaPrecio"></td>
+                        <td id="migaTotal"></td>
+                    </tr>    
+                    <tr>
+                        <th scope="row"><input type="number" class="form-control" id="inPebetinPedido" value="0"></th>
+                        <td>Pebetín</td>
+                        <td id="pebetinPrecio"></td>
+                        <td id="pebetinTotal"></td>
+                    </tr>    
+                    <tr>
+                        <th scope="row"><input type="number" class="form-control" id="inPebetePedido" value="0"></th>
+                        <td>Pebete</td>
+                        <td id="pebetePrecio"></td>
+                        <td id="pebeteTotal"></td>
+                    </tr>        
+                </tbody>  
+            </table>
+            <h3>Total:</h3>
+            <h4 id="totalPedido"></h4>
+            <button type="button" id="borrarPedido" class="btn btn-outline-danger">BORRAR</button>
+            <button type="button" id="btnAtras" class="btn btn-outline-danger">VOLVER</button>
+        </div>
+        
+    </section>
+
+    <!-- Sección que muestra el detalle del pedido -->
+    <section id="detallePedido" class="row disable">
+       
+
+    </section>
+
+    <!-- Sección que muestra el listado de productos con sus precios -->
+    <section id="showProductos" class="row disable">
+        <div class="mx-auto col-10 col-md-8 col-lg-2 row">
+            <button type="button" class="btn btn-outline-danger btn-lg" id="volverDeVerProductos">Volver</button>
+        </div>
+    </section>
+    <script src="./js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+</body>
+</html>

@@ -346,11 +346,11 @@ function volverDeProductos (){
   })
 }
 
+//Manejo de la sección para calcular pedidos
 
 //función para calcular y mostrar el total del pedido
-
 function mostrarPedido () {
-  
+  toNan();
   const storedPreciosProductos = JSON.parse(localStorage.getItem('preciosProductos'));
 
   const precioEntera = storedPreciosProductos[0].entera;
@@ -391,7 +391,7 @@ function mostrarPedido () {
 
   totalPedido.innerText = `$${calculoTotalPedido}.00`;                    
 
-  
+
 
 }
 
@@ -417,5 +417,23 @@ inMigaPedido.addEventListener('input',mostrarPedido);
 inPebetinPedido.addEventListener('input',mostrarPedido);
 inPebetePedido.addEventListener('input',mostrarPedido);
 
+//función para modificar el valor ingresado en el imput de NaN a 0
+function toNan() {
+  const cantidadEntera = parseFloat(inEnteraPedido.value);
+  const cantidadPorcion = parseFloat(inPorcionPedido.value);
+  const cantidadBudin = parseFloat(inBudinPedido.value);
+  const cantidadMiga = parseFloat(inMigaPedido.value);
+  const cantidadPebetin = parseFloat(inPebetinPedido.value);
+  const cantidadPebete = parseFloat(inPebetePedido.value); 
+
+  if (isNaN(cantidadEntera) || isNaN(cantidadPorcion) || isNaN(cantidadBudin) || isNaN(cantidadMiga) || isNaN(cantidadPebetin) || isNaN(cantidadPebete)){
+    inEnteraPedido.value = '0';
+    inPorcionPedido.value = '0';
+    inBudinPedido.value = '0';
+    inMigaPedido.value = '0';
+    inPebetinPedido.value = '0';
+    inPebetePedido.value = '0';
+  }
+}
 
 iniApp();

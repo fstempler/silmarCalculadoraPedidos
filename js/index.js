@@ -395,13 +395,14 @@ function mostrarPedido () {
 
 }
 
+//Botón para borrar pedido
 borrarPedido.addEventListener('click', () => {  
-  inEnteraPedido.value = '0';
-  inPorcionPedido.value = '0';
-  inBudinPedido.value = '0';
-  inMigaPedido.value = '0';
-  inPebetinPedido.value = '0';
-  inPebetePedido.value = '0';
+  inEnteraPedido.value = '';
+  inPorcionPedido.value = '';
+  inBudinPedido.value = '';
+  inMigaPedido.value = '';
+  inPebetinPedido.value = '';
+  inPebetePedido.value = '';
   mostrarPedido();
 })
 

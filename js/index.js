@@ -69,6 +69,7 @@ const mostrarPrecioMiga = document.getElementById('mostrarPrecioMiga');
 const mostrarPrecioPebetin = document.getElementById('mostrarPrecioPebetin');
 const mostrarPrecioPebete = document.getElementById('mostrarPrecioPebete');
 
+//Manejo de la sección que inicia la app
 //Función para iniciar la app
 function iniApp(){
   //Entra a la sección para cargar precios
@@ -96,6 +97,8 @@ function iniApp(){
       
   })
 }
+
+//Manejo de la sección para cargar los precios ˅
 
 //formulario para cargar los productos
 loadPrices.addEventListener("submit", (event) => {
@@ -163,7 +166,7 @@ loadPrices.addEventListener("submit", (event) => {
   })
   
 
-//Función para cargar los precios ingersados en el form en el array.
+//Función para cargar los precios ingresados en el form en el array.
 function crearPreciosProductos (precioProducto){
         const preciosProductos = [];    
         preciosProductos.push(precioProducto);
@@ -195,7 +198,6 @@ mostrarPrecioPebete.innerHTML = `<p class="mostrarPreciosCargados">$${storedPrec
 }  
 
 //función que maneja los botones para modificar los precios cargados
-
 function modificarPrecioCargado (){
   //Modifica el precio de enteras
   modificarPrecioEntera.addEventListener('click', () => {
@@ -301,6 +303,8 @@ function modificarPrecioCargado (){
   })
 }
 
+//Manejo de la sección para ver los productos con sus prcios cargados. ˅
+
 //función para mostrar los productos
 function mostrarProductos (){
     
@@ -346,7 +350,7 @@ function volverDeProductos (){
   })
 }
 
-//Manejo de la sección para calcular pedidos
+//Manejo de la sección para calcular pedidos. ˅
 
 //función para calcular y mostrar el total del pedido
 function mostrarPedido () {
@@ -376,6 +380,15 @@ function mostrarPedido () {
 
   const calculoTotalPedido = totalEntera + totalPorcion + totalBudin + totalMiga + totalPebetin + totalPebete;
 
+//Pone valor 0 si el valor de entera es NaN
+if (isNaN(totalEntera) || isNaN(totalPorcion) || isNaN(totalBudin) || isNaN(totalMiga) || isNaN(totalPebetin) || isNaN(totalPebete)){
+  totalEntera = '0';
+  totalPorcion = '0';
+  totalBudin = '0';
+  totalMiga = '0';
+  totalPebetin = '0';
+  totalPebete = '0';
+}
   enteraPrecio.innerText = `$${precioEntera}.00`;
   enteraTotal.innerText = `$${totalEntera}.00`;
   porcionPrecio.innerText = `$${precioPorcion}.00`;
@@ -397,20 +410,20 @@ function mostrarPedido () {
 
 //Botón para borrar pedido
 borrarPedido.addEventListener('click', () => {  
-  inEnteraPedido.value = '';
-  inPorcionPedido.value = '';
-  inBudinPedido.value = '';
-  inMigaPedido.value = '';
-  inPebetinPedido.value = '';
-  inPebetePedido.value = '';
+  inEnteraPedido.value = '0';
+  inPorcionPedido.value = '0';
+  inBudinPedido.value = '0';
+  inMigaPedido.value = '0';
+  inPebetinPedido.value = '0';
+  inPebetePedido.value = '0';
   mostrarPedido();
 })
-
+//Botón para volver a la pantalla principal desde la sección de pedidos
 btnAtras.addEventListener('click', () => {
   initApp.classList.remove('disable');
   calculadoraPedidos.classList.add('disable');
 })
-
+//Inserta el valor valor ingresado en los inputs de los pedidos
 inEnteraPedido.addEventListener('input',mostrarPedido);
 inPorcionPedido.addEventListener('input',mostrarPedido);
 inBudinPedido.addEventListener('input',mostrarPedido);
@@ -427,14 +440,12 @@ function toNan() {
   const cantidadPebetin = parseFloat(inPebetinPedido.value);
   const cantidadPebete = parseFloat(inPebetePedido.value); 
 
-  if (isNaN(cantidadEntera) || isNaN(cantidadPorcion) || isNaN(cantidadBudin) || isNaN(cantidadMiga) || isNaN(cantidadPebetin) || isNaN(cantidadPebete)){
-    inEnteraPedido.value = '0';
-    inPorcionPedido.value = '0';
-    inBudinPedido.value = '0';
-    inMigaPedido.value = '0';
-    inPebetinPedido.value = '0';
-    inPebetePedido.value = '0';
-  }
+  if (isNaN(cantidadEntera)){inEnteraPedido.value = '0';}; 
+  if (isNaN(cantidadPorcion)){inPorcionPedido.value = '0';};
+  if (isNaN(cantidadBudin)){inBudinPedido.value = '0';};
+  if (isNaN(cantidadMiga)){inMigaPedido.value = '0';};
+  if (isNaN(cantidadPebetin)){inPebetinPedido.value = '0';};
+  if (isNaN(cantidadPebete)){inPebetePedido.value = '0';};  
 }
 
 iniApp();
